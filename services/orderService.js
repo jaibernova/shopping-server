@@ -45,7 +45,7 @@ export default {
 
             // Find and calculate local currency depending on shipping location
             let currency, exchange_rate;
-            if (address.country == 'Bangladesh') {
+            if (address.country == 'Colombia') {
                 currency = 'BDT';
             }
             else if (address.country == 'Nepal') {

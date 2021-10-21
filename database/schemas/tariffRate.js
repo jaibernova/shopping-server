@@ -7,7 +7,7 @@ let countryWiseRateSchema = new mongoose.Schema({
         required: true,
         min: 0
     },
-    "Bangladesh": {
+    "Colombia": {
         type: Number,
         required: true,
         min: 0
