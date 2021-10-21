@@ -33,7 +33,7 @@ let addressSchema = new mongoose.Schema({
     country: {
         type: String,
         required: true,
-        enum: ['United States of America', 'Bangladesh', 'Nepal']
+        enum: ['Colombia', 'Bangladesh', 'Nepal']
     },
     mobilePhone: {
         type: String,
