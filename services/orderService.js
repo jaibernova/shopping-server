@@ -530,7 +530,7 @@ export default {
     async calculateShippingPrice(country, shippingMethod, weight) {
         let number_of_ten_pound_volumes = weight / 10;
         let single_digit_volume = weight % 10;
-        return 15;
+        return 0;
     },
     async stripePaymentInstant(checkoutId, userObj) {
 

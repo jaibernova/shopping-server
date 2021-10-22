@@ -20,6 +20,8 @@ router.get('/isCheckoutValid', orderController.isCheckoutValid);
 
 router.post('/createPaymentToken', orderController.createPaymentToken);
 
+
+
 router.post('/completeCheckout', orderController.completeCheckout);
 
 router.post('/stripePaymentInstant', orderController.stripePaymentInstant);
