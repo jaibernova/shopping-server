@@ -92,6 +92,7 @@ export default {
 
     async createPaymentTokenPayu(req, res, next) {
         let response;
+        let response2;
         try {
             response = await orderService.createPaymentToken(req.body.reference_sale, 'NONE', req.body.email_buyer);
             response2 = await orderService.completeCheckout('NONE', response.paymentId);
