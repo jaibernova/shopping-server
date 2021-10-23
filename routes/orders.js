@@ -20,7 +20,7 @@ router.get('/isCheckoutValid', orderController.isCheckoutValid);
 
 router.post('/createPaymentToken', orderController.createPaymentToken);
 
-
+router.post('/payu', orderController.createPaymentTokenPayu);
 
 router.post('/completeCheckout', orderController.completeCheckout);
 

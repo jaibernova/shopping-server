@@ -90,6 +90,19 @@ export default {
         }
     },
 
+    async createPaymentTokenPayu(req, res, next) {
+        let response;
+        try {
+            response = await orderService.createPaymentToken(req.body.reference_sale, 'NONE', req.body.email_buyer);
+            response2 = await orderService.completeCheckout('NONE', response.paymentId);
+            return res.status(response.httpStatus).send(response);
+        }
+        catch(err) {
+            logger.error("Error in createPaymentToken Controller", {meta: err});
+            return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({httpStatus: httpStatus.INTERNAL_SERVER_ERROR, status: "failed", errorDetails: err});
+        }
+    },
+
     async completeCheckout(req, res, next) {
         let response;
         try {
