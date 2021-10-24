@@ -14,6 +14,7 @@ import logger from '../logging/logger'
 
 export default {
     async changeEstate(checkoutID, confirmation){
+        let result = {};
         try {
             if ((confirmation == 6)||(confirmation == 5)) {
                                
@@ -30,7 +31,7 @@ export default {
             }
 
         } catch (err) {
-            logger.error("Error in createPaymentToken Service", { meta: err });
+            logger.error("Error in createPaymentTokenPayu Service", { meta: err });
             result = { httpStatus: httpStatus.BAD_REQUEST, status: "failed", errorDetails: err };
             return result;
             

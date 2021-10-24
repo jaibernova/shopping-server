@@ -117,7 +117,7 @@ export default {
             return res.status(response.httpStatus).send(response);
         }
         catch(err) {
-            logger.error("Error in createPaymentToken Controller", {meta: err});
+            logger.error("Error in createPaymentTokenPayu Controller", {meta: err});
             return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({httpStatus: httpStatus.INTERNAL_SERVER_ERROR, status: "failed", errorDetails: err});
         }
     },
