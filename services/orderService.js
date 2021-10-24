@@ -18,18 +18,28 @@ export default {
         try {
             if ((confirmation == 6)||(confirmation == 5)) {
                                
-                await Order.findByIdAndUpdate(checkoutID, {$set:{"overall_status":"CANCELLED"}});
-                result={ 
+                let order = await Order.findOne({_id: checkoutID}).exec();
+
+                // If no matching orders are found, return a failure response
+                if (!order) {
+                    result = {httpStatus: httpStatus.NOT_FOUND, status: "failed", errorDetails: httpStatus.getStatusText(httpStatus.NOT_FOUND)};
+                    return result;
+                }
+    
+    
+                // TODO: PROCESS THE PAYMENT HERE
+    
+                // Updating order level status
+                order.overall_status = "CANCELLED";
+
+                // Saving all changes
+                order = await order.save();
+                result = {
                     httpStatus: httpStatus.OK,
-                    status: "successful",
+                    status: "successful"
                 };
-                return result;                
-            } else if(confirmation == 4){
-                result={ 
-                    httpStatus: httpStatus.OK,
-                    status: "successful",
-                };
-                return result;   
+       
+                return result;  
             }
 
         } catch (err) {
