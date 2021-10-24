@@ -20,12 +20,14 @@ export default {
                                
                 await Order.findByIdAndUpdate(checkoutID, {$set:{"overall_status":"CANCELLED"}});
                 result={ 
-                    status: 200 
+                    httpStatus: httpStatus.OK,
+                    status: "successful",
                 };
                 return result;                
             } else if(confirmation == 4){
                 result={ 
-                    status: 200 
+                    httpStatus: httpStatus.OK,
+                    status: "successful",
                 };
                 return result;   
             }
