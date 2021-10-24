@@ -13,6 +13,31 @@ import httpStatus from 'http-status-codes';
 import logger from '../logging/logger'
 
 export default {
+    async changeEstate(checkoutID, confirmation){
+        try {
+            if ((confirmation == 6)||(confirmation == 5)) {
+                               
+                await Order.findByIdAndUpdate(checkoutID, {$set:{"overall_status":"CANCELLED"}});
+                result={ 
+                    status: 200 
+                };
+                return result;                
+            } else if(confirmation == 4){
+                result={ 
+                    status: 200 
+                };
+                return result;   
+            }
+
+        } catch (err) {
+            logger.error("Error in createPaymentToken Service", { meta: err });
+            result = { httpStatus: httpStatus.BAD_REQUEST, status: "failed", errorDetails: err };
+            return result;
+            
+        }
+
+    },
+
     async createCheckout(addressId, shippingMethod, userObj) {
         let result = {};
         try {

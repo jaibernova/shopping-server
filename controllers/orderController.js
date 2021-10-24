@@ -90,12 +90,30 @@ export default {
         }
     },
 
+    // async createPaymentTokenPayu(req, res, next) {
+    //     let response;
+    //     let response2;
+    //     paymentSource='NONE';
+
+        
+    //     try {
+    //         response = await orderService.createPaymentToken(req.body.reference_sale, paymentSource, req.body.email_buyer);
+    //         response2 = await orderService.completeCheckout(paymentSource, response.responseData.payment_info[0].payment_id);
+    //         return res.status(response.httpStatus).send(response);
+    //     }
+    //     catch(err) {
+    //         logger.error("Error in createPaymentToken Controller", {meta: err});
+    //         return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({httpStatus: httpStatus.INTERNAL_SERVER_ERROR, status: "failed", errorDetails: err});
+    //     }
+    // },
     async createPaymentTokenPayu(req, res, next) {
         let response;
-        let response2;
+
+
+        
         try {
-            response = await orderService.createPaymentToken(req.body.reference_sale, 'NONE', req.body.email_buyer);
-            response2 = await orderService.completeCheckout('NONE', response.paymentId);
+            response = await orderService.changeEstate(req.body.reference_sale, req.body.state_pol);
+            
             return res.status(response.httpStatus).send(response);
         }
         catch(err) {
@@ -103,6 +121,7 @@ export default {
             return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({httpStatus: httpStatus.INTERNAL_SERVER_ERROR, status: "failed", errorDetails: err});
         }
     },
+
 
     async completeCheckout(req, res, next) {
         let response;
