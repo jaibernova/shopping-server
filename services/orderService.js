@@ -27,15 +27,10 @@ export default {
                     return result;
                 }
                 Order.update({_id: checkoutID},{$set: {'overall_status':'CANCELLED'}})
-    
-                // TODO: PROCESS THE PAYMENT HERE   
 
-
-                // Saving all changes
-                order = await order.save();
                 result = {
                     httpStatus: httpStatus.OK,
-                    status: httpStatus.OK
+                    status: "successful"
                 };
        
                 return result;  
