@@ -14,10 +14,10 @@ import logger from '../logging/logger'
 
 
 export default {
-    async changeEstate(checkoutID, confirmation){
+    async changeEstate(checkoutID, confirmation,){
         let result = {};
         try {
-            if ((confirmation == '6 (Rechazada)')||(confirmation == '5 (Expirada)')) {
+            if ((confirmation == 6)||(confirmation == 5)) {
                                
                 let order = await Order.findOne({_id: checkoutID}).exec();
 

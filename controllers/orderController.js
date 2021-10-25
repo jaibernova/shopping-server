@@ -112,7 +112,7 @@ export default {
 
         
         try {
-            response = await orderService.changeEstate(req.body.reference_sale, req.body.state_pol);
+            response = await orderService.changeEstate(req.body.description, req.body.state_pol);
             
             return res.status(response.httpStatus).send(response);
         }
