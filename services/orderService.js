@@ -12,6 +12,7 @@ import transformer from '../utilities/transform-props';
 import httpStatus from 'http-status-codes';
 import logger from '../logging/logger'
 
+
 export default {
     async changeEstate(checkoutID, confirmation){
         let result = {};
@@ -25,12 +26,10 @@ export default {
                     result = {httpStatus: httpStatus.NOT_FOUND, status: "failed", errorDetails: httpStatus.getStatusText(httpStatus.NOT_FOUND)};
                     return result;
                 }
+                Order.update({_id: checkoutID},{'overall_status':'CANCELLED'})
     
-    
-                // TODO: PROCESS THE PAYMENT HERE
-    
-                // Updating order level status
-                order.overall_status = "CANCELLED";
+                // TODO: PROCESS THE PAYMENT HERE   
+
 
                 // Saving all changes
                 order = await order.save();
@@ -43,7 +42,7 @@ export default {
             }
 
         } catch (err) {
-            logger.error("Error in createPaymentTokenPayu Service", { meta: err });
+            logger.error("Error in changeEstate Service", { meta: err });
             result = { httpStatus: httpStatus.BAD_REQUEST, status: "failed", errorDetails: err };
             return result;
             
@@ -142,6 +141,11 @@ export default {
     async createPaymentToken(checkoutId, paymentSource, userObj) {
         let result = {};
         try {
+            let user = await User.findOne({email: userObj.email}).exec();
+            User.update({_id: userObj._id}, {$unset:{'cart':1}})
+            
+            user.cart = shoppingService.returnFreshInitializedCart();
+            user = await user.save() 
             // Make sure at least the required params are passed
             if (!(checkoutId && paymentSource)) {
                 result = { httpStatus: httpStatus.BAD_REQUEST, status: "failed", errorDetails: "Missing checkout id or payment source" };
@@ -223,7 +227,7 @@ export default {
                 result = { httpStatus: httpStatus.INTERNAL_SERVER_ERROR, status: "failed", errorDetails: httpStatus.getStatusText(httpStatus.INTERNAL_SERVER_ERROR) };
                 return result;
             }
-
+   
             result = {
                 httpStatus: httpStatus.OK,
                 status: "successful",
@@ -504,6 +508,7 @@ export default {
             order = order.toObject({ flattenMaps: true });
             transformer.castValuesToString(order, "_id");
             emailService.emailOrderReceived(order)
+
 
             result = {
                 httpStatus: httpStatus.OK,
