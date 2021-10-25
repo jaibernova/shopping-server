@@ -26,7 +26,7 @@ export default {
                     result = {httpStatus: httpStatus.NOT_FOUND, status: "failed", errorDetails: httpStatus.getStatusText(httpStatus.NOT_FOUND)};
                     return result;
                 }
-                Order.update({_id: checkoutID},{'overall_status':'CANCELLED'})
+                Order.update({_id: checkoutID},{$set: {'overall_status':'CANCELLED'}})
     
                 // TODO: PROCESS THE PAYMENT HERE   
 
@@ -35,7 +35,7 @@ export default {
                 order = await order.save();
                 result = {
                     httpStatus: httpStatus.OK,
-                    status: "successful"
+                    status: httpStatus.OK
                 };
        
                 return result;  
