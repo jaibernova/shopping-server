@@ -35,6 +35,10 @@ export default {
        
                 return result;  
             }
+            result = {
+                httpStatus: httpStatus.OK,
+                status: "successful"
+            };
 
         } catch (err) {
             logger.error("Error in changeEstate Service", { meta: err });
