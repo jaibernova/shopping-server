@@ -17,7 +17,7 @@ export default {
     async changeEstate(checkoutID, confirmation){
         let result = {};
         try {
-            if ((confirmation == 6)||(confirmation == 5)) {
+            if ((confirmation == '6 (Rechazada)')||(confirmation == '5 (Expirada)')) {
                                
                 let order = await Order.findOne({_id: checkoutID}).exec();
 
