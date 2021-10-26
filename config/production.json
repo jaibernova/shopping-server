@@ -21,9 +21,11 @@
     "allowed_origins": [
         "https://shopping-webclient.pages.dev",        
         "https://sandbox.checkout.payulatam.com",
-        "https://lukapetshop.com.co/",
-        "https://www.google.com/recaptcha",
-        "http://localhost:3000"
+        "https://lukapetshop.com.co",
+        "http://lukapetshop.com.co",
+        "http://localhost:5201",
+        "https://google.com",
+        "http://localhost:3000" 
     ],
     "token_validity": {
         "password_reset_token_valid_for": 3600000

@@ -23,7 +23,8 @@
         "https://sandbox.checkout.payulatam.com",
         "https://lukapetshop.com.co",
         "http://lukapetshop.com.co",
-        "https://www.google.com/recaptcha",
+        "http://localhost:5201",
+        "https://google.com",
         "http://localhost:3000"        
     ],
     "token_validity": {
