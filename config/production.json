@@ -19,9 +19,11 @@
         "max_age": 1800000
     },
     "allowed_origins": [
-        "https://www.veniqa.com", 
-        "https://veniqa.com",
-        "https://shop.veniqa.com"
+        "https://shopping-webclient.pages.dev",        
+        "https://sandbox.checkout.payulatam.com",
+        "https://lukapetshop.com.co/",
+        "https://www.google.com/recaptcha",
+        "http://localhost:3000"
     ],
     "token_validity": {
         "password_reset_token_valid_for": 3600000

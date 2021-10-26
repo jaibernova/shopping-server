@@ -19,11 +19,10 @@
         "max_age": 1800000
     },
     "allowed_origins": [
-        "https://shopping-webclient.pages.dev",
-        "http://localhost:5201",
-        "http://localhost:5202",        
+        "https://shopping-webclient.pages.dev",        
         "https://sandbox.checkout.payulatam.com",
-
+        "https://lukapetshop.com.co/",
+        "https://www.google.com/recaptcha",
         "http://localhost:3000"        
     ],
     "token_validity": {
@@ -36,8 +35,8 @@
         "exception_log_file_name": "exceptions.log"
     },
     "frontend_urls": {
-        "email_confirmation_base_url": "https://shopping-webclient.pages.dev/#/email-confirmation",
-        "password_reset_base_url": "https://shopping-webclient.pages.dev/#/password-reset"
+        "email_confirmation_base_url": "https://lukapetshop.com.co/#/email-confirmation",
+        "password_reset_base_url": "https://lukapetshop.com.co/#/password-reset"
     },
     "sendgrid": {
         "templates": {
