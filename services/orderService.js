@@ -553,7 +553,7 @@ export default {
             // Calculating shipping price
             // let shippingPriceInUSD = await this.calculateShippingPrice(shoppingCart.totalWeight.quantity)
             let shippingPriceInUSD = 0
-            if (shoppingCart.subTotalPrice.amount>100000) {
+            if (shoppingCart.subTotalPrice.amount<100000) {
                 shippingPriceInUSD = 5000;                
             }
             
