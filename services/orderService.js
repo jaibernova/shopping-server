@@ -14,10 +14,10 @@ import logger from '../logging/logger'
 
 
 export default {
-    async changeEstate(checkoutID, confirmation,){
+    async changeEstate(checkoutID, confirmation){
         let result = {};
         try {
-            if ((confirmation == 6)||(confirmation == 5)) {
+            if ((confirmation == "6")||(confirmation == "5")) {
                                
                 let order = await Order.findOne({_id: checkoutID}).exec();
 
@@ -551,10 +551,16 @@ export default {
             }
 
             // Calculating shipping price
-            let shippingPriceInUSD = await this.calculateShippingPrice(shoppingCart.totalWeight.quantity)
+            // let shippingPriceInUSD = await this.calculateShippingPrice(shoppingCart.totalWeight.quantity)
+            let shippingPriceInUSD = 0
+            if (shoppingCart.subTotalPrice.amount>100000) {
+                shippingPriceInUSD = 5000;                
+            }
+            
 
             // Add other necessary key-values about pricing details necessary for it to be a qualified order cart
-            let serviceChargeInUSD = Math.round(0.05 * shoppingCart.subTotalPrice.amount * 100) / 100; // 5% service charge on subtotalprice
+            // let serviceChargeInUSD = Math.round(0.05 * shoppingCart.subTotalPrice.amount * 100) / 100; // 5% service charge on subtotalprice
+            let serviceChargeInUSD = 0; // 0% service charge on subtotalprice
             let totalPriceInUSD = Math.round((shoppingCart.subTotalPrice.amount + tariffPriceInUSD + serviceChargeInUSD + shippingPriceInUSD) * 100) / 100;
 
             shoppingCart['serviceCharge'] = { amount: serviceChargeInUSD, currency: 'USD' };
