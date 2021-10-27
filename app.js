@@ -126,7 +126,7 @@ app.use(session({
     domain: 'shopping-server-todopet.herokuapp.com',
     secure: true, 
     maxAge: config.get('session.max_age'),
-    sameSite: 'none'
+    SameSite: 'None'
 
     // Set this to true only after veniqa has a ssl enabled site
 
