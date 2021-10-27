@@ -122,11 +122,11 @@ app.use(session({
   saveUninitialized: true,  // setting true saves even unmodified sessions
   // proxy: true,
   cookie: {
-    httpOnly: true,
-    // domain: 'lukapetshop.com.co',
-    secure: true, 
+    // httpOnly: true,
+    // domain: '.lukapetshop.com.co',
+    // secure: true, 
     maxAge: config.get('session.max_age'),
-    sameSite: 'none'
+    // sameSite: 'none'
 
     // Set this to true only after veniqa has a ssl enabled site
 
