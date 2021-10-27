@@ -99,6 +99,18 @@ app.use(compression());
 // }))
 
 
+/************************************************************* */
+
+// To Allow cross origin requests originating from selected origins
+var corsOptions = {
+  origin: config.get('allowed_origins'),
+  methods: ['GET, POST, OPTIONS, PUT, DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}
+
+app.use(cors(corsOptions));
+
 
 /************************************************************* */
 
@@ -118,7 +130,7 @@ app.use(session({
   resave: false,  // setting true forces a resave in store even if session not changed
   rolling: true,  // setting true updates expiration with maxAge after every user request
   saveUninitialized: true,  // setting true saves even unmodified sessions
-  proxy: true,
+  // proxy: true,
   cookie: {
     httpOnly: true,
     maxAge: config.get('session.max_age'),
@@ -151,17 +163,7 @@ passportAuth.initializePassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-/************************************************************* */
 
-// To Allow cross origin requests originating from selected origins
-var corsOptions = {
-  origin: config.get('allowed_origins'),
-  methods: ['GET, POST, OPTIONS, PUT, DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}
-
-app.use(cors(corsOptions));
 
 /************************************************************** */
 
