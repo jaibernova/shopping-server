@@ -120,7 +120,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     maxAge: config.get('session.max_age'),
-    sameSite: 'none',
+    SameSite: 'none',
     secure: true // Set this to true only after veniqa has a ssl enabled site
 
   }
@@ -160,7 +160,7 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions));
-// app.enable('trust proxy');
+app.enable('trust proxy');
 /************************************************************** */
 
 app.use('/', indexRouter);
