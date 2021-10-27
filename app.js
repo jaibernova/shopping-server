@@ -47,6 +47,7 @@ import passportAuth from './authentication/passportAuth';
 /************************************************************* */
 // Establish database connection
 db.dbConnection();
+app.enable('trust proxy');
 
 /************************************************************* */
 // Redis client
@@ -120,7 +121,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     maxAge: config.get('session.max_age'),
-    SameSite: 'none',
+    sameSite: 'none',
     secure: true // Set this to true only after veniqa has a ssl enabled site
 
   }
@@ -160,7 +161,7 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions));
-app.enable('trust proxy');
+
 /************************************************************** */
 
 app.use('/', indexRouter);
