@@ -123,10 +123,10 @@ app.use(session({
   // proxy: true,
   cookie: {
     httpOnly: true,
-    domain: 'shopping-server-todopet.herokuapp.com',
+    domain: 'lukapetshop.com.co',
     secure: true, 
     maxAge: config.get('session.max_age'),
-    SameSite: 'None'
+    // SameSite: 'None'
 
     // Set this to true only after veniqa has a ssl enabled site
 
