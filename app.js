@@ -117,7 +117,7 @@ app.use(session({
   //   client: redisClient
   // }),
   secret: process.env.VENIQA_SESSION_SECRET_KEY,
-  resave: true,  // setting true forces a resave in store even if session not changed
+  resave: false,  // setting true forces a resave in store even if session not changed
   rolling: true,  // setting true updates expiration with maxAge after every user request
   saveUninitialized: true,  // setting true saves even unmodified sessions
   // proxy: true,
@@ -125,7 +125,7 @@ app.use(session({
     httpOnly: true,
     secure: true, 
     maxAge: config.get('session.max_age'),
-    sameSite: 'none'
+    sameSite: 'lax'
 
     // Set this to true only after veniqa has a ssl enabled site
 
