@@ -98,25 +98,8 @@ app.use(compression());
 //   }
 // }))
 
-/************************************************************* */
-// Configure authentication
-
-passportAuth.initializePassport(passport);
-app.use(passport.initialize());
-app.use(passport.session());
 
 
-/************************************************************* */
-
-// To Allow cross origin requests originating from selected origins
-var corsOptions = {
-  origin: config.get('allowed_origins'),
-  methods: ['GET, POST, OPTIONS, PUT, DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}
-
-app.use(cors(corsOptions));
 
 
 /************************************************************* */
@@ -140,15 +123,16 @@ app.use(session({
   // proxy: true,
   cookie: {
     httpOnly: true,
+    secure: true, 
     maxAge: config.get('session.max_age'),
-    sameSite: 'none',
-    secure: true 
+    sameSite: 'none'
+
     // Set this to true only after veniqa has a ssl enabled site
 
   }
 }))
 
-app.set("trust proxy", 1)
+// app.set("trust proxy", 1)
 
 /************************************************************* */
 // Configure Request Rate Limiter
@@ -165,6 +149,29 @@ app.set("trust proxy", 1)
 // })
 
 // app.use(limiter);
+
+/************************************************************* */
+
+// To Allow cross origin requests originating from selected origins
+var corsOptions = {
+  origin: config.get('allowed_origins'),
+  methods: ['GET, POST, OPTIONS, PUT, DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}
+
+app.use(cors(corsOptions));
+
+
+
+/************************************************************* */
+// Configure authentication
+
+passportAuth.initializePassport(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 
 
