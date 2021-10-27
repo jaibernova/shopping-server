@@ -123,8 +123,9 @@ app.use(session({
   // proxy: true,
   cookie: {
     httpOnly: true,
-    // secure: true, 
-    maxAge: config.get('session.max_age'),
+    domain: '.lukapetshop.com.co',
+    secure: true, 
+    maxAge: config.get('session.max_age')
     // sameSite: 'none'
 
     // Set this to true only after veniqa has a ssl enabled site
