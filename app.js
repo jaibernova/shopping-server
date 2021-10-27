@@ -85,7 +85,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser('secret'));
+app.use(cookieParser());
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
@@ -117,7 +117,7 @@ app.use(session({
   //   client: redisClient
   // }),
   secret: process.env.VENIQA_SESSION_SECRET_KEY,
-  resave: false,  // setting true forces a resave in store even if session not changed
+  resave: true,  // setting true forces a resave in store even if session not changed
   rolling: true,  // setting true updates expiration with maxAge after every user request
   saveUninitialized: true,  // setting true saves even unmodified sessions
   // proxy: true,
