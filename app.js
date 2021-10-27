@@ -98,6 +98,13 @@ app.use(compression());
 //   }
 // }))
 
+/************************************************************* */
+// Configure authentication
+
+passportAuth.initializePassport(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 /************************************************************* */
 
@@ -134,11 +141,14 @@ app.use(session({
   cookie: {
     httpOnly: true,
     maxAge: config.get('session.max_age'),
-    // sameSite: 'none',
-    secure: true // Set this to true only after veniqa has a ssl enabled site
+    sameSite: 'none',
+    secure: true 
+    // Set this to true only after veniqa has a ssl enabled site
 
   }
 }))
+
+app.set("trust proxy", 1)
 
 /************************************************************* */
 // Configure Request Rate Limiter
@@ -155,13 +165,6 @@ app.use(session({
 // })
 
 // app.use(limiter);
-
-/************************************************************* */
-// Configure authentication
-
-passportAuth.initializePassport(passport);
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 
