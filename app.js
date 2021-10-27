@@ -123,7 +123,7 @@ app.use(session({
   // proxy: true,
   cookie: {
     httpOnly: true,
-    domain: '.lukapetshop.com.co',
+    domain: 'lukapetshop.com.co',
     // secure: true, 
     maxAge: config.get('session.max_age')
     // sameSite: 'none'
