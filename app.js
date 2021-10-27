@@ -122,9 +122,9 @@ app.use(session({
   saveUninitialized: true,  // setting true saves even unmodified sessions
   // proxy: true,
   cookie: {
-    httpOnly: false,
+    // httpOnly: false,
     domain: 'lukapetshop.com.co',
-    secure: false, 
+    secure: true, 
     maxAge: config.get('session.max_age'),
     sameSite: 'none'
 
