@@ -85,8 +85,8 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser('secret'));
-app.use(cookieParser());
+app.use(cookieParser('secret'));
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use(compression());
@@ -123,8 +123,8 @@ app.use(session({
   // proxy: true,
   cookie: {
     httpOnly: true,
-    secure: true, 
-    maxAge: config.get('session.max_age'),
+    // secure: true, 
+    maxAge: config.get('session.max_age')
     // sameSite: 'none'
 
     // Set this to true only after veniqa has a ssl enabled site
