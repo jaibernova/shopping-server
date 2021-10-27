@@ -99,7 +99,7 @@ app.use(compression());
 // }))
 
 
-app.enable('trust proxy'),
+// app.enable('trust proxy'),
 
 
 /************************************************************* */
@@ -132,7 +132,7 @@ app.use(session({
   }
 }))
 
-// app.set("trust proxy", 1)
+app.set("trust proxy", 1)
 
 /************************************************************* */
 // Configure Request Rate Limiter
