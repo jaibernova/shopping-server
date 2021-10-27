@@ -122,8 +122,8 @@ app.use(session({
   saveUninitialized: true,  // setting true saves even unmodified sessions
   // proxy: true,
   cookie: {
-    // httpOnly: false,
-    domain: 'lukapetshop.com.co',
+    httpOnly: true,
+    domain: 'shopping-server-todopet.herokuapp.com',
     secure: true, 
     maxAge: config.get('session.max_age'),
     sameSite: 'none'
