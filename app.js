@@ -123,7 +123,7 @@ app.use(session({
   // proxy: true,
   cookie: {
     httpOnly: true,
-    secure: true, 
+    // secure: true, 
     maxAge: config.get('session.max_age'),
     // sameSite: 'none'
 
