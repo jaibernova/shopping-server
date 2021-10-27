@@ -38,6 +38,7 @@ import shoppingRouter from './routes/shopping';
 import userRouter from './routes/user';
 import orderRouter from './routes/orders';
 import uiRouter from './routes/ui';
+// const expressSession = require("express-session")
 
 // Imports for authentication
 import passport from 'passport';
@@ -89,6 +90,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use(compression());
 
+// app.use(expressSession({
+//   cookie: {
+//     sameSite: 'none',
+//     secure: true
+//   }
+// }))
+
+
+
 /************************************************************* */
 
 // Configure sessions
@@ -109,8 +119,8 @@ app.use(session({
   saveUninitialized: true,  // setting true saves even unmodified sessions
   cookie: {
     httpOnly: true,
-    maxAge: config.get('session.max_age')
-    // secure: true, // Set this to true only after veniqa has a ssl enabled site
+    maxAge: config.get('session.max_age'),
+    secure: true // Set this to true only after veniqa has a ssl enabled site
   }
 }))
 
@@ -148,7 +158,7 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions));
-
+// app.enable('trust proxy');
 /************************************************************** */
 
 app.use('/', indexRouter);
