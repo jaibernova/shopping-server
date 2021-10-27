@@ -124,7 +124,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     domain: '.lukapetshop.com.co',
-    secure: true, 
+    // secure: true, 
     maxAge: config.get('session.max_age')
     // sameSite: 'none'
 
