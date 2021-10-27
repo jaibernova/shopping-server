@@ -125,7 +125,7 @@ app.use(session({
     httpOnly: true,
     secure: true, 
     maxAge: config.get('session.max_age'),
-    sameSite: 'lax'
+    // sameSite: 'none'
 
     // Set this to true only after veniqa has a ssl enabled site
 
