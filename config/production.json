@@ -37,8 +37,8 @@
         "exception_log_file_name": "exceptions.log"
     },
     "frontend_urls": {
-        "email_confirmation_base_url": "http://localhost:5201/#/email-confirmation",
-        "password_reset_base_url": "http://localhost:5201/#/password-reset"
+        "email_confirmation_base_url": "https://lukapetshop.com.co/#/email-confirmation",
+        "password_reset_base_url": "https://lukapetshop.com.co/#/password-reset"
     },
     "sendgrid": {
         "templates": {
