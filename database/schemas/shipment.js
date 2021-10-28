@@ -7,7 +7,7 @@ import priceSchema from './price';
 let shipmentSchema = new mongoose.Schema({
     provider: {
         type: String,
-        enum: ['MYUS', 'USPS', 'UPS', 'FEDEX', 'DHL'],
+        enum: ['SERVIENTREGA', 'ENVIA', 'MENSAJURBANOS', 'UBER', 'OTRO'],
         required: true
     },
     tracking_number: {
