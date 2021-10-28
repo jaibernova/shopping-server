@@ -16,7 +16,7 @@
     },
     "session": {
         "name": "sessionID",
-        "max_age": 1800000
+        "max_age": 9199999999
     },
     "allowed_origins": [
         "https://shopping-webclient.pages.dev",        
