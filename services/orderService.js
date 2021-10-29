@@ -507,7 +507,7 @@ export default {
             order = order.toObject({ flattenMaps: true });
             transformer.castValuesToString(order, "_id");
             emailService.emailOrderReceived(order)
-
+            emailService.emailOrderReceivedDos(order)
 
             result = {
                 httpStatus: httpStatus.OK,

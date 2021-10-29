@@ -61,8 +61,24 @@ export default {
 
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '"Luka Petshop - soporte" <soporte@lukapetshop.com.co>', // sender address
-            to: condensedOrderObj.user_email, // list of receivers
+            from: '"Luka Petshop - recibimos tu orden" <soporte@lukapetshop.com.co>', // sender address
+            to: condensedOrderObj.user_email,  // list of receivers
+            subject: 'Veniqa - Order Received', // Subject line
+            html: '<b>Hi </b>' + '<br>We have received your order.<br><br>',
+            templateId: config.get('sendgrid.templates.order_received'),
+            dynamic_template_data: condensedOrderObj
+        };
+
+        this.triggerEmail(mailOptions);
+    },
+    
+    emailOrderReceivedDos(orderObj) {
+        let condensedOrderObj = this.parseOrderDetailsForEmail(orderObj);
+
+        // setup email data with unicode symbols
+        let mailOptions = {
+            from: '"Luka Petshop - recibimos tu orden" <soporte@lukapetshop.com.co>', // sender address
+            to: '<ordenes@lukapetshop.com.co>',  // list of receivers
             subject: 'Veniqa - Order Received', // Subject line
             html: '<b>Hi </b>' + '<br>We have received your order.<br><br>',
             templateId: config.get('sendgrid.templates.order_received'),
