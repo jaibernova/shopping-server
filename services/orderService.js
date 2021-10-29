@@ -99,7 +99,7 @@ export default {
                 user_email: userObj.email,
                 mailing_address: address,
                 payment_info: [{
-                    source: 'NONE',
+                    source: shippingPreference,
                     type: 'PENDING',
                     payment_id: '0',
                     transaction_id: '0',
