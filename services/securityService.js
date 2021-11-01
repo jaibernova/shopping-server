@@ -45,7 +45,8 @@ export default {
         try {
             // This should only work if there is already an existing emailConfirmationToken. If there is none, it means user already verified
             let user = await User.findOne({email: email}).exists('emailConfirmationToken').exec();
-            let token = await cryptoGen.generateRandomToken();
+            // let token = await cryptoGen.generateRandomToken();
+            let token = await user.emailConfirmationToken;
     
             // If a user is found, and they are still unverified, ONLY THEN update the token and send the email
             if (!(user && token)) {
