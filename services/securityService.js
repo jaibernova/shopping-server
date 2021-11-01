@@ -83,6 +83,7 @@ export default {
 
             // If an associated user with the given token is not found, then return failure
             if (!user) {
+                res.redirect('https://lukapetshop.com.co/#/');
                 result = {httpStatus: httpStatus.NOT_FOUND, status: "failed", errorDetails: httpStatus.getStatusText(httpStatus.NOT_FOUND)};
                 return result;
             }
@@ -93,6 +94,7 @@ export default {
 
             // If the user was not properly saved, stop here and return failure
             if (!user) {
+                res.redirect('https://lukapetshop.com.co/#/');
                 result = {httpStatus: httpStatus.INTERNAL_SERVER_ERROR, status: "failed", errorDetails: httpStatus.getStatusText(httpStatus.INTERNAL_SERVER_ERROR)};
                 return result;
             }
