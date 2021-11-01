@@ -105,6 +105,7 @@ export default {
         }
         catch(err) {
             logger.error("Error in confirmEmailAddress Service", {meta: err})
+            res.redirect('https://lukapetshop.com.co/#/')
             result = {httpStatus: httpStatus.BAD_REQUEST, status: "failed", errorDetails: err};
             return result;
         }
