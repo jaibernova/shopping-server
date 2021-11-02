@@ -28,7 +28,8 @@
         "http://lukapetshop.com.co",
         "http://localhost:5201",
         "https://google.com",
-        "http://localhost:3000"        
+        "http://localhost:3000",   
+        "http://localhost"        
     ],
     "token_validity": {
         "password_reset_token_valid_for": 3600000
