@@ -39,8 +39,8 @@
         "exception_log_file_name": "exceptions.log"
     },
     "frontend_urls": {
-        "email_confirmation_base_url": "https://lukapetshop.com.co/#/email-confirmation",
-        "password_reset_base_url": "https://lukapetshop.com.co/#/password-reset"
+        "email_confirmation_base_url": "https://lukamascotas.com.co/#/email-confirmation",
+        "password_reset_base_url": "https://lukamascotas.com.co/#/password-reset"
     },
     "sendgrid": {
         "templates": {

@@ -22,12 +22,15 @@
         "https://shopping-webclient.pages.dev",        
         "https://sandbox.checkout.payulatam.com",
         "https://lukapetshop.com.co",
+        "https://lukamascotas.com.co",
         "https://www.lukapetshop.com.co",
         "https://www.lukamascotas.com.co",
         "https://serverluka.lukapetshop.com.co/",
+        "https://servidorluka.lukamascotas.com.co/",
         "http://www.lukapetshop.com.co",
         "http://www.lukamascotas.com.co",
         "http://lukapetshop.com.co",
+        "http://lukamascotas.com.co",
         "http://localhost:5201",
         "https://google.com",
         "http://localhost:3000",   
@@ -43,8 +46,8 @@
         "exception_log_file_name": "exceptions.log"
     },
     "frontend_urls": {
-        "email_confirmation_base_url": "https://lukapetshop.com.co/#/email-confirmation",
-        "password_reset_base_url": "https://lukapetshop.com.co/#/password-reset"
+        "email_confirmation_base_url": "https://lukamascotas.com.co/#/email-confirmation",
+        "password_reset_base_url": "https://lukamascotas.com.co/#/password-reset"
     },
     "sendgrid": {
         "templates": {
