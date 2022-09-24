@@ -8,7 +8,7 @@ let paymentSchema = new mongoose.Schema({
     source: {
         type: String,
         required: true,
-        enum: ['Mañana', '2 dias', '3 dias', 'Otro, escribenos por Whatsapp', 'KHALTI']
+        enum: ['1 a 3 dias', '4 a 6 dias', '7 a 9 dias', 'Otro, escribenos por Whatsapp', 'KHALTI']
     },
     type: {
         type: String,
